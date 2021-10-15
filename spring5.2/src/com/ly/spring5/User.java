@@ -1,7 +1,13 @@
 package com.ly.spring5;
 
 public class User {
-public void add(){
+    private String userName;
+
+//    public User(String userName) {
+//        this.userName = userName;
+//    }
+
+    public void add(){
     System.out.println("add................." );
 }
 }
