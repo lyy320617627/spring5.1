@@ -1,5 +1,6 @@
 package com.ly.testdemo;
 
+import com.ly.autowire.Emp;
 import com.ly.bean.Orders;
 import com.ly.collectiontype.Book;
 import com.ly.collectiontype.Course;
@@ -41,5 +42,11 @@ public class TestSpring5Demo {
       System.out.println(orders);
       //手动让bean实例销毁
       ((ClassPathXmlApplicationContext) context).close();
+   }
+   @Test
+   public void test5(){
+      ApplicationContext context=new ClassPathXmlApplicationContext("bean5.xml");
+      Emp emp=context.getBean("emp",Emp.class);
+      System.out.println(emp);
    }
 }
