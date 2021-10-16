@@ -13,6 +13,12 @@ public class Stu {
     //3.创建Map集合类型属性
     private Map<String,String> maps;
     //4.set集合类型的属性
+    //学生所学的多门课程
+
+    private List<Course> coursesList;
+    public void setCoursesList(List<Course> coursesList){
+        this.coursesList=coursesList;
+    }
     private Set<String> sets;
     public void setSets(Set<String> sets){
         this.sets=sets;
@@ -33,5 +39,6 @@ public class Stu {
         System.out.println(list);
         System.out.println(maps);
         System.out.println(sets);
+        System.out.println(coursesList);
     }
 }

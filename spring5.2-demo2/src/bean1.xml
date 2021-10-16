@@ -33,7 +33,20 @@
                 <value>Redis</value>
             </set>
         </property>
-
-
+        <!--注入list集合类型，值是对象-->
+        <property name="coursesList">
+            <list>
+                <ref bean="course1"></ref>
+                <ref bean="course2"></ref>
+            </list>
+        </property>
+<!--        <bean id></bean>-->
+    </bean>
+        <!--创建对个course对象-->
+    <bean id="course1" class="com.ly.collectiontype.Course">
+        <property name="cname" value="spring5框架"></property>
+    </bean>
+    <bean id="course2" class="com.ly.collectiontype.Course">
+        <property name="cname" value="Mybabits框架"></property>
     </bean>
 </beans>
