@@ -6,6 +6,8 @@ import org.junit.Test;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
+import java.util.List;
+
 public class TestBook {
     @Test
     public void testJdbcTemplate(){
@@ -16,6 +18,16 @@ public class TestBook {
 //        book.setUsername("java");
 //        book.setUstatus("atguigu");
 //        bookService.updateBook(book);
-        bookService.deleteBook("2");
+//        bookService.deleteBook("2");
+        //查询返回某个值
+//        int count = bookService.findCount();
+//        System.out.println(count);
+        //查询返回对象
+//        Book book = bookService.findOne("1");
+//        System.out.println(book);
+        //查询返回集合
+        List<Book> bookList = bookService.findAll();
+        System.out.println(bookList);
+
     }
 }
