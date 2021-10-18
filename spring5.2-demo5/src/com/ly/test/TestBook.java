@@ -11,10 +11,11 @@ public class TestBook {
     public void testJdbcTemplate(){
         ApplicationContext context=new ClassPathXmlApplicationContext("bean1.xml");
         BookService bookService=context.getBean("bookService",BookService.class);
-        Book book =new Book();
-        book.setUserId("3");
-        book.setUsername("哈利波特");
-        book.setUstatus("a");
-        bookService.addBook(book);
+//        Book book =new Book();
+//        book.setUserId("1");
+//        book.setUsername("java");
+//        book.setUstatus("atguigu");
+//        bookService.updateBook(book);
+        bookService.deleteBook("2");
     }
 }
