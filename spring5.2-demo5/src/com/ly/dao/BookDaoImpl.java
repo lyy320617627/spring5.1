@@ -1,6 +1,8 @@
 package com.ly.dao;
 
 import com.ly.entity.Book;
+import com.sun.org.apache.xml.internal.security.Init;
+import jdk.management.resource.internal.inst.SocketOutputStreamRMHooks;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.jdbc.core.BeanPropertyRowMapper;
@@ -9,6 +11,7 @@ import org.springframework.jdbc.core.SqlInOutParameter;
 import org.springframework.orm.ObjectRetrievalFailureException;
 import org.springframework.stereotype.Repository;
 
+import java.util.Arrays;
 import java.util.List;
 
 @Repository
@@ -62,5 +65,26 @@ public class BookDaoImpl implements BookDao{
         String sql="select * from t_book";
         List<Book> bookList = jdbcTemplate.query(sql, new BeanPropertyRowMapper<Book>(Book.class));
         return bookList;
+    }
+
+    @Override
+    public void batchAddBook(List<Object[]> batchArgs) {
+        String sql="insert into t_book values(?,?,?)";
+        int[] ints = jdbcTemplate.batchUpdate(sql, batchArgs);
+        System.out.println(Arrays.toString(ints));
+    }
+
+    @Override
+    public void batchUpdateBook(List<Object[]> batchArgs) {
+        String sql="update t_book set username=?,ustatus=?where user_id=?";
+        int[] ints = jdbcTemplate.batchUpdate(sql, batchArgs);
+        System.out.println(Arrays.toString(ints));
+    }
+    //批量删除
+    @Override
+    public void batchDeleteBook(List<Object[]> batchArgs) {
+        String sql="delete from t_book where user_id=?";
+        int[] ints = jdbcTemplate.batchUpdate(sql, batchArgs);
+        System.out.println(ints);
     }
 }

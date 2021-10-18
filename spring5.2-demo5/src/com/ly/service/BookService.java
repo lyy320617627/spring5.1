@@ -3,6 +3,7 @@ package com.ly.service;
 import com.ly.dao.BookDao;
 import com.ly.entity.Book;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Service;
 
@@ -36,5 +37,17 @@ public class BookService {
     //查询返回集合
     public List<Book> findAll(){
         return bookDao.findAllBook();
+    }
+    //批量添加
+    public void batchAdd(List<Object[]> batchArgs){
+         bookDao.batchAddBook(batchArgs);
+    }
+    //批量修改
+    public void batchUpdate(List<Object[]> batchArgs){
+        bookDao.batchUpdateBook(batchArgs);
+    }
+    //批量删除操作
+    public void batchDelete(List<Object[]> batchArgs){
+        bookDao.batchDeleteBook(batchArgs);
     }
 }
