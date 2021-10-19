@@ -23,7 +23,7 @@ public class UserService {
 //      try {
           //lucy少100
           userDao.reduceMoney();
-          int i=10/0;
+//          int i=10/0;
           //mary多100
           userDao.addMoney();
           //如果没有异常，提交事务

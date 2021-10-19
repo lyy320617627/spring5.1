@@ -12,4 +12,10 @@ public class TestBook {
         UserService userService = context.getBean("userService", UserService.class);
         userService.accountMoney();
     }
+    @Test
+    public void testAccount2(){
+        ApplicationContext context=new ClassPathXmlApplicationContext("bean2.xml");
+        UserService userService = context.getBean("userService", UserService.class);
+        userService.accountMoney();
+    }
 }
