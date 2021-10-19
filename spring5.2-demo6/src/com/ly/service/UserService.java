@@ -3,10 +3,12 @@ package com.ly.service;
 import com.ly.dao.UserDao;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Isolation;
+import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
 
 @Service
-@Transactional//可以加到类上面，也可以加到方法上面
+@Transactional(readOnly = true,timeout = 5,propagation = Propagation.REQUIRED,isolation = Isolation.REPEATABLE_READ)//可以加到类上面，也可以加到方法上面
 public class UserService {
 //注入Dao
     @Autowired
