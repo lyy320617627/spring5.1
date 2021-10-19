@@ -8,7 +8,7 @@ import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
 
 @Service
-@Transactional(readOnly = true,timeout = 5,propagation = Propagation.REQUIRED,isolation = Isolation.REPEATABLE_READ)//可以加到类上面，也可以加到方法上面
+@Transactional(propagation = Propagation.REQUIRED,isolation = Isolation.REPEATABLE_READ)//可以加到类上面，也可以加到方法上面
 public class UserService {
 //注入Dao
     @Autowired
